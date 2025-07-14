@@ -1,0 +1,20 @@
+---
+// Banner component - displays a promotional banner
+// This replaces the Jekyll include banner.html
+
+// Get current date in seconds since epoch
+const now = Math.floor(Date.now() / 1000);
+// January 1, 2024 at midnight
+const endDate = new Date('2024-01-01 00:00:00').getTime() / 1000;
+
+// Only show banner if current date is before end date
+const showBanner = now < endDate;
+---
+
+{showBanner && (
+  <div class="banner">
+    <p>Black Friday & End of Year discount! Click <a
+      href="/download/blackFridayDiscount.pdf">here</a> to
+      get a 50% coupon! Available until January 1st, 2025.</p>
+  </div>
+)}

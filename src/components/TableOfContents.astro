@@ -1,0 +1,89 @@
+---
+// Table of Contents component
+// This replaces the Jekyll include toc.html
+
+// This component will be client-side rendered to extract headings from the content
+---
+
+<div class="table-of-contents">
+  <h4>Table of Contents</h4>
+  <ul class="toc-list">
+    <!-- This will be populated by client-side JavaScript -->
+  </ul>
+</div>
+
+<script>
+  // Function to generate table of contents from headings
+  function generateTableOfContents() {
+    const container = document.querySelector('.doc');
+    const tocList = document.querySelector('.toc-list');
+
+    if (!container || !tocList) return;
+
+    // Find all h2, h3, and h4 headings in the content
+    const headings = container.querySelectorAll('h2, h3, h4');
+
+    // Clear existing TOC
+    tocList.innerHTML = '';
+
+    // Generate TOC items
+    headings.forEach((heading) => {
+      // Create slug from heading text
+      const text = heading.textContent || '';
+      const slug = text
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+
+      // Set ID on the heading if it doesn't have one
+      if (!heading.id) {
+        heading.id = slug;
+      }
+
+      // Create TOC item
+      const listItem = document.createElement('li');
+      listItem.classList.add(`toc-${heading.tagName.toLowerCase()}`);
+
+      const link = document.createElement('a');
+      link.href = `#${heading.id}`;
+      link.textContent = text;
+
+      listItem.appendChild(link);
+      tocList.appendChild(listItem);
+    });
+  }
+
+  // Generate TOC when the page loads
+  document.addEventListener('DOMContentLoaded', generateTableOfContents);
+
+  // Update TOC if content changes (for SPAs)
+  document.addEventListener('astro:page-load', generateTableOfContents);
+</script>
+
+<style>
+  .table-of-contents {
+    padding: 1rem;
+  }
+
+  .toc-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .toc-h2 {
+    margin-top: 0.5rem;
+  }
+
+  .toc-h3 {
+    padding-left: 1rem;
+    font-size: 0.95em;
+  }
+
+  .toc-h4 {
+    padding-left: 2rem;
+    font-size: 0.9em;
+  }
+</style>

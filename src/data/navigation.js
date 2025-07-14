@@ -1,0 +1,79 @@
+// Navigation data for the sidebar
+// This replaces the Jekyll _data/nav.yml file
+
+export const navigation = [
+  {
+    title: "Introduction",
+  },
+  {
+    title: "Getting Started",
+  },
+  {
+    title: "Configuration",
+    pages: [
+      { title: "Settings" },
+      { title: "Color Schemes" },
+      { title: "Main Settings" },
+      { title: "Tab Settings" },
+      { title: "Compact Settings" },
+      { title: "Project View Settings" },
+      { title: "Component Settings" },
+      { title: "Features Settings" },
+      { title: "Project Frame Settings" },
+      { title: "Other Tweaks Settings" },
+      { title: "Quick Actions Panel" },
+      { title: "Excluded Files Colors" },
+      { title: "File Status Colors" },
+      { title: "Scrollbars" },
+      { title: "Accents" },
+      { title: "Language Additions" },
+      { title: "Custom Themes" },
+      { title: "Recommended Plugins" },
+    ],
+  },
+  {
+    title: "Icons",
+    pages: [
+      { title: "Atom Material Icons Plugin" },
+      { title: "Associations Editor" },
+    ],
+  },
+  {
+    title: "Reference",
+    pages: [
+      { title: "Color Palette" },
+      { title: "File Icons" },
+      { title: "Associations" },
+      { title: "Folder Associations" },
+      { title: "Components" },
+      { title: "Wizard" },
+      { title: "Chrome Themes" },
+    ],
+  },
+  {
+    title: "Analytics",
+  },
+  {
+    title: "FAQ/Troubleshooting",
+  },
+  {
+    title: "Other Products",
+  },
+  {
+    title: "Acknowledgements",
+  },
+  {
+    title: "What's new",
+  },
+  {
+    title: "Changelog",
+  },
+  {
+    title: "Pricing",
+  },
+  {
+    title: "About Subscription Model",
+  },
+];
+
+export default navigation;
