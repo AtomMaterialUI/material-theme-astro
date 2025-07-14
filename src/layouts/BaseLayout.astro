@@ -21,15 +21,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16"/>
+  <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32"/>
+  <link rel="preconnect" href="https://6LPFESP50M-dsn.algolia.net" crossorigin/>
+
   <meta name="generator" content={Astro.generator}/>
   <link rel="canonical" href={canonicalURL}/>
+
+  <style>
+    .DocSearch-Button {
+      opacity: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha"/>
+
 
   <!-- Primary Meta Tags -->
   <title>{title} | Material Theme UI Documentation</title>
   <meta name="title" content={title}/>
   <meta name="description" content={description}/>
+  <meta name="author" content="Elior Boukhobza (Mallowigi)">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website"/>
@@ -69,9 +81,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </footer>
 
 <!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha384-C5yXM3HiWa6a8kI2Jd4LuuwmOGAVgJw0YSmuRXN+PLT5Jln26ddUnPQxkInM/w2x" crossorigin="anonymous"></script>-->
-<!--<slot name="scripts" />-->
+<slot name="scripts"/>
 </body>
 </html>
