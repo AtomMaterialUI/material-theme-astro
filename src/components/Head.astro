@@ -1,26 +1,24 @@
 ---
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts'
-import { Fragment } from 'astro/jsx-runtime'
-import Plugins from './Plugins.astro'
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
+import { Fragment } from 'astro/jsx-runtime';
+import Plugins from './Plugins.astro';
+import Meta from './Meta.astro';
 
 interface Props {
-  title?: string
-  description?: string
+  title?: string;
+  description?: string;
 }
 
-const { title, description } = Astro.props
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const isProd = import.meta.env.PROD
+const isProd = import.meta.env.PROD;
 ---
 
 <meta charset="UTF-8" />
 <meta name="generator" content={Astro.generator} />
 <link rel="canonical" href={canonicalURL} />
-<meta
-  content="width=device-width, initial-scale=1, maximum-scale=1"
-  name="viewport"
-/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
 
 <!--Favicons-->
 <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
@@ -33,15 +31,13 @@ const isProd = import.meta.env.PROD
 <title>{title} - {SITE_TITLE}</title>
 
 <!-- Description -->
-{
-  description ? (
-    <meta name="description" content={description} />
-  ) : (
-    <meta name="description" content={SITE_DESCRIPTION} />
-  )
-}
+{description ? <meta name="description" content={description} /> : <meta name="description" content={SITE_DESCRIPTION} />}
 
 <!-- Author -->
 <meta name="author" content={SITE_AUTHOR} />
 
+<!-- Plugins -->
 {isProd && <Plugins />}
+
+<!-- Meta -->
+<Meta title={title} description={description} />
