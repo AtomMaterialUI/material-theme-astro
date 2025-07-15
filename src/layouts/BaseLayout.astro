@@ -6,14 +6,9 @@ import Head from '../components/Head.astro';
 interface Props {
   title: string;
   description?: string;
-  image?: string;
 }
 
-const {
-  title,
-  description = 'The Material Theme plugin is a plugin for JetBrains IDEs which completely redesigns the UI with a beautiful and configurable Material Design UI.',
-  image = '/img/brand/logo.png',
-} = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,15 +16,9 @@ const {
   <!--suppress HtmlRequiredTitleElement -->
   <head>
     <Head title={title} description={description} />
-
-    <!--&lt;!&ndash; Font Awesome &ndash;&gt;-->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>-->
-
-    <!--&lt;!&ndash; Materialize CSS (if still needed) &ndash;&gt;-->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>-->
-
     <slot name="head" />
   </head>
+
   <body class="documentation theme-oceanic">
     <slot name="banner" />
 
@@ -46,7 +35,6 @@ const {
     </footer>
 
     <!-- Scripts -->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha384-C5yXM3HiWa6a8kI2Jd4LuuwmOGAVgJw0YSmuRXN+PLT5Jln26ddUnPQxkInM/w2x" crossorigin="anonymous"></script>-->
     <slot name="scripts" />
   </body>
 </html>
