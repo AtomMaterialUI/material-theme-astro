@@ -16,6 +16,10 @@ const { title, description } = Astro.props;
   <!--suppress HtmlRequiredTitleElement -->
   <head>
     <Head title={title} description={description} />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Optional head -->
     <slot name="head" />
   </head>
 

@@ -1,0 +1,184 @@
+/* Define theme components using Tailwind's @apply directive */
+@layer components {
+  /* Base styles for body and form elements */
+  body {
+    @apply bg-background text-foreground transition-all duration-1000;
+  }
+
+  body input:not([type]),
+  body input[type=text]:not(.browser-default),
+  body input[type=password]:not(.browser-default),
+  body input[type=email]:not(.browser-default),
+  body input[type=url]:not(.browser-default),
+  body input[type=time]:not(.browser-default),
+  body input[type=date]:not(.browser-default),
+  body input[type=datetime]:not(.browser-default),
+  body input[type=datetime-local]:not(.browser-default),
+  body input[type=tel]:not(.browser-default),
+  body input[type=number]:not(.browser-default),
+  body input[type=search]:not(.browser-default),
+  body textarea.materialize-textarea {
+    @apply text-foreground;
+  }
+
+  /* Dropdown styles */
+  .dropdown-content li {
+    @apply bg-second text-foreground;
+  }
+
+  .select-dropdown.dropdown-content li.selected,
+  .select-dropdown.dropdown-content li:focus {
+    @apply bg-selectBg text-selectFg;
+  }
+
+  .select-dropdown.dropdown-content li:hover {
+    @apply bg-hl text-selectFg;
+  }
+
+  /* Page styles */
+  .front-page {
+    @apply bg-background text-foreground transition-all duration-1000;
+  }
+
+  body.documentation {
+    @apply bg-background text-foreground;
+  }
+
+  .header,
+  .footer {
+    @apply bg-background transition-all duration-1000;
+  }
+
+  .main-menu,
+  .menu,
+  .footer {
+    @apply bg-contrast text-foreground transition-all duration-1000;
+  }
+
+  .main-menu a,
+  .menu a,
+  .footer a {
+    @apply text-foreground transition-colors duration-1000 hover:text-accent;
+  }
+
+  .navbar > li:hover {
+    @apply bg-background transition-all duration-1000;
+  }
+
+  .muted {
+    @apply text-foreground opacity-50 transition-all duration-1000;
+  }
+
+  .logo-caption,
+  .logo-description,
+  .section-title,
+  .feat-title,
+  .feat-caption {
+    @apply text-foreground fill-foreground transition-all duration-1000;
+  }
+
+  .contents {
+    @apply bg-background text-foreground transition-all duration-1000;
+  }
+
+  .screenshot {
+    @apply bg-[image:var(--laptop)] bg-no-repeat bg-[50%_30%] bg-[url('../../img/laptop.png')] bg-left-top bg-contain hidden;
+  }
+
+  .logo-img {
+    @apply bg-[image:var(--logo)] bg-[url('../../img/logo/material-oceanic.svg')] my-4 mx-auto;
+  }
+
+  .logo-img.-error {
+    @apply filter grayscale-100 rotate-25 -translate-y-10;
+  }
+
+  .sidebar-toggle {
+    @apply bg-background transition-colors duration-[0.25s] hover:bg-[linear-gradient(to_top,rgba(0,0,0,0.25),rgba(0,0,0,0.25)),var(--background)];
+  }
+
+  .sidebar-toggle i {
+    @apply text-foreground transition-colors duration-1000;
+  }
+
+  .sidebar {
+    @apply bg-contrast text-foreground;
+  }
+
+  .sidebar a {
+    @apply text-white hover:text-[#f78c6c] transition-colors duration-1000;
+  }
+
+  .sidebar-link-group a {
+    @apply text-foreground transition-colors duration-1000;
+  }
+
+  .sidebar-link-group a:hover {
+    @apply bg-background transition-colors duration-1000;
+  }
+
+  .sidebar-link-group.active > a,
+  .link-section.active > a {
+    @apply bg-background transition-colors duration-1000;
+  }
+
+  .link-section.active > a {
+    @apply text-accent transition-colors duration-1000;
+  }
+
+  .docs-header {
+    @apply bg-accent text-selectFg transition-all duration-1000;
+  }
+
+  .github-ribbon {
+    @apply border-0 text-selectFg fill-accent absolute right-0 top-0 transition-all duration-1000;
+  }
+
+  hr {
+    @apply border-hl;
+  }
+
+  pre,
+  code {
+    @apply bg-second border-border;
+  }
+
+  blockquote {
+    @apply bg-second border-border text-foreground;
+  }
+
+  table tbody tr:nth-child(odd),
+  .card-panel,
+  .card {
+    @apply bg-contrast text-foreground;
+  }
+
+  .card-panel.warn {
+    @apply bg-accent text-selectFg;
+  }
+
+  .card-panel.error {
+    @apply text-selectFg;
+  }
+
+  .card-panel a {
+    @apply text-accent2;
+  }
+
+  .search .search-input,
+  .search .search-button {
+    @apply text-foreground bg-contrast;
+  }
+
+  .collection-item.color {
+    @apply text-[#212121];
+  }
+
+  .card, #carbonads {
+    @apply bg-notif text-foreground;
+  }
+
+  .pageclip-form__success {
+    @apply bg-background;
+  }
+}

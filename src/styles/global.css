@@ -1,3 +1,5 @@
+@import './themes.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,46 +53,11 @@
 
   --laptop: url('../../img/themes/oceanic.png');
   --logo: url('../../../img/logo/material-oceanic.svg');
-}
 
-.theme-oceanic {
-  --primary-color: #263238;
-  --secondary-color: #37474f;
-  --accent-color: #80cbc4;
-  --background-color: #263238;
-  --foreground-color: #eeffff;
-}
-
-.theme-darker {
-  --primary-color: #212121;
-  --secondary-color: #303030;
-  --accent-color: #ff9800;
-  --background-color: #212121;
-  --foreground-color: #eeffff;
-}
-
-.theme-lighter {
-  --primary-color: #fafafa;
-  --secondary-color: #e7e7e7;
-  --accent-color: #00bcd4;
-  --background-color: #fafafa;
-  --foreground-color: #546e7a;
-}
-
-.theme-palenight {
-  --primary-color: #292d3e;
-  --secondary-color: #34324a;
-  --accent-color: #ab47bc;
-  --background-color: #292d3e;
-  --foreground-color: #a6accd;
-}
-
-.theme-deepocean {
-  --primary-color: #0f111a;
-  --secondary-color: #1a1c25;
-  --accent-color: #84ffff;
-  --background-color: #0f111a;
-  --foreground-color: #8f93a2;
+  --header-size: 64px;
+  --header-size-condensed: 56px;
+  --from-full-to-noslogan: 935px;
+  --from-noslogan-to-icon: 640px;
 }
 
 * {
@@ -111,8 +78,13 @@ body {
 
   background-color: var(--background-color);
   color: var(--foreground-color);
-  margin: 0;
-  padding: 0;
+  margin-top: var(--header-size, 0px);
+  min-height: 100vh;
+  transition: 0.3s all ease-in-out;
+
+  @media all and (max-width: var(--from-noslogan-to-icon)) {
+    margin-top: var(--header-size-condensed);
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -261,5 +233,18 @@ dl {
     &:last-of-type {
       border-bottom: 0 solid transparent;
     }
+  }
+}
+
+code {
+  border-radius: 4px;
+  font-size: smaller;
+  padding: 2px 4px;
+  font-family: var(--mono-font), monospace;
+
+  .highlight & {
+    background: none;
+    border: 0;
+    border-radius: 0;
   }
 }
