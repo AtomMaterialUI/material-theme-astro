@@ -23,7 +23,7 @@ const { title, description } = Astro.props;
     <slot name="head" />
   </head>
 
-  <body class="documentation theme-oceanic">
+  <body class="index theme-oceanic">
     <slot name="banner" />
 
     <header class="header">
@@ -42,3 +42,21 @@ const { title, description } = Astro.props;
     <slot name="scripts" />
   </body>
 </html>
+
+<style>
+  .header {
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+  }
+
+  .main {
+    padding-top: 50px;
+    width: 100%;
+    @media screen and (max-width: var(--from-noslogan-to-icon)) {
+      padding-top: 0;
+    }
+  }
+</style>
