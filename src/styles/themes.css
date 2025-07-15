@@ -181,4 +181,17 @@
   .pageclip-form__success {
     @apply bg-background;
   }
+
+  /* TODO make a component*/
+  .btn {
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    outline: 0;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    @apply bg-accent text-selectFg transition-colors duration-1000 hover:bg-accent2;
+  }
 }

@@ -1,36 +1,52 @@
 ---
-// Footer component - displays the site footer
-// This replaces the Jekyll include footer.html
-
+import { VERSION, YEAR } from '../consts';
 const currentYear = new Date().getFullYear();
 const copyrightYears = `2015-${currentYear}`;
 ---
 
-<footer class="page-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Material Theme UI</h5>
-        <p class="grey-text text-lighten-4">
-          The Material Theme plugin is a plugin for JetBrains IDEs which completely redesigns
-          the UI with a beautiful and configurable Material Design UI.
-        </p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="https://plugins.jetbrains.com/plugin/8006-material-theme-ui" target="_blank">JetBrains Plugin Repository</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/mallowigi/material-theme-issues" target="_blank">GitHub</a></li>
-          <li><a class="grey-text text-lighten-3" href="/docs/faq-troubleshooting">FAQ/Troubleshooting</a></li>
-          <li><a class="grey-text text-lighten-3" href="/docs/what-s-new">What's New</a></li>
-        </ul>
-      </div>
+<footer class="self-end box-border text-[0.8em] font-normal w-full md:text-[0.9em]">
+  <!-- Contact -->
+  <div class="flex-row flex-wrap justify-between self-start font-light grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="col-span-1">
+      <h5>Support Us</h5>
+      <p>Thank you for using our plugins! If you liked the plugins, you can support us on Paypal or OpenCollective.</p>
+      <!-- TODO make a component-->
+      <a class="btn mt-1 text-white" href="/docs/support-us/">Support</a>
+    </div>
+
+    <div class="col-span-1">
+      <h5>Join the Discussion</h5>
+      <p>
+        We have a Slack chat room set up where you can talk directly with us. Come in and discuss new features, future goals, general
+        problems or questions, or anything else you can think of.
+      </p>
+      <!-- TODO make a component -->
+      <a class="btn mt-1 text-white" target="_blank" href="https://join.slack.com/t/material-theme-ui/shared_invite/zt-4w78iblt-cHXYRYERpuGNbD~TqsD8rg"
+        >Slack</a
+      >
+    </div>
+
+    <div class="col-span-1 overflow-hidden">
+      <h5>Connect</h5>
+      <iframe
+        src="https://ghbtns.com/github-btn.html?user=chrisrm&repo=material-theme-jetbrains&type=watch&count=true&size=large"
+        allowtransparency="true"
+        frameborder="0"
+        scrolling="0"
+        width="170"
+        height="30"></iframe>
+      <br />
     </div>
   </div>
-  <div class="footer-copyright">
-    <div class="container">
-      © {copyrightYears} <a href="https://github.com/mallowigi" target="_blank">Elior Boukhobza (Mallowigi)</a>
-      <a class="grey-text text-lighten-4 right" href="https://www.jetbrains.com" target="_blank">JetBrains</a>
-    </div>
+
+  <!-- Copyright -->
+  <div class="flex-row flex-wrap justify-between self-start block leading-[54px]">
+    <span>Material Theme v{VERSION} &copy; {YEAR} </span>
+    <span class="hidden sm:inline-block">
+      <a href="https://twitter.com/mallowigi" target="_blank">Elior Boukhobza</a> &
+      <a href="https://twitter.com/crmag" target="_blank">Chris Magnussen</a>
+    </span>
+    <span class="inline-block sm:hidden">All rights reserved</span>
+    <a href="/docs/eula" class="float-left sm:float-right muted">EULA</a>
   </div>
 </footer>
