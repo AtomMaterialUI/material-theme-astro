@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Banner from '../components/Banner.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 ---
 
 <BaseLayout
@@ -11,18 +12,7 @@ import Footer from '../components/Footer.astro';
 >
   <Banner slot="banner" />
 
-  <div class="hero">
-    <div class="container">
-      <div class="row center-align">
-        <div class="col s12">
-          <img src="/img/logo/material-oceanic.svg" alt="Material Theme Logo" width="120" height="120" />
-
-          <h1>Material Theme UI</h1>
-          <p class="flow-text">Material Design experience for JetBrains IDEs</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Header slot="header" />
 
   <div class="features">
     <div class="container">

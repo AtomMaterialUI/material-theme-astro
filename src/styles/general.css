@@ -1,0 +1,57 @@
+@layer components {
+  .center {
+    @apply block my-0 mx-auto relative;
+  }
+
+  .content {
+    @apply center;
+    @apply bg-transparent max-w-[1500px] w-[90%] mx-auto;
+  }
+
+  .clearfix {
+    @apply clear-both after:content-[''] after:table;
+  }
+
+  .list-indicator {
+    @apply before:content-[' '] before:absolute before:left-0 before:top-0 before:w-[6px] before:transition-all before:duration-300;
+  }
+
+  .shadow-1 {
+    @apply shadow-[0_2px_5px_rgba(0,0,0,0.16),0_2px_10px_rgba(0,0,0,0.12)];
+  }
+
+  .shadow-2 {
+    @apply shadow-[0_5px_11px_rgba(0,0,0,0.18),0_4px_15px_rgba(0,0,0,0.15)];
+  }
+
+  .shadow-3 {
+    @apply shadow-[0_8px_17px_rgba(0,0,0,0.2),0_6px_20px_rgba(0,0,0,0.19)];
+  }
+
+  .shadow-4 {
+    @apply shadow-[0_12px_15px_rgba(0,0,0,0.24),0_17px_50px_rgba(0,0,0,0.19)];
+  }
+
+  .shadow-5 {
+    @apply shadow-[0_16px_28px_rgba(0,0,0,0.22),0_25px_55px_rgba(0,0,0,0.21)];
+  }
+
+  .btn {
+    @apply border-0 rounded-[2px] inline-block h-[36px] leading-[36px] outline-0 px-[2rem] uppercase align-middle;
+    @apply cursor-pointer text-center opacity-[0.95] no-underline transition-[0.2s] ease-out tracking-[0.5px] font-normal;
+    @apply shadow-1;
+
+    &:hover {
+      @apply opacity-[1] shadow-2;
+    }
+
+    &.disabled {
+      @apply shadow-none cursor-default pointer-events-none;
+    }
+  }
+
+  .card {
+    @apply shadow-1;
+    @apply rounded-[2px] bg-contrast my-[0.5em] mx-0 relative transition-shadow duration-[0.25%]
+  }
+}

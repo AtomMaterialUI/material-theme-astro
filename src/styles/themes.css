@@ -58,7 +58,7 @@
   .main-menu a,
   .menu a,
   .footer a {
-    @apply text-foreground transition-colors duration-1000 hover:text-accent;
+    @apply text-selectFg transition-colors duration-300 hover:text-selectFg;
   }
 
   .navbar > li:hover {
@@ -74,25 +74,20 @@
   .section-title,
   .feat-title,
   .feat-caption {
-    @apply text-foreground fill-foreground transition-all duration-1000;
+    @apply text-foreground fill-foreground transition-all duration-300;
+  }
+
+  .logo-slogan {
+    @apply text-accent transition-all duration-300;
   }
 
   .contents {
     @apply bg-background text-foreground transition-all duration-1000;
   }
 
-  .screenshot {
-    @apply bg-[image:var(--laptop)] bg-no-repeat bg-[50%_30%] bg-[url('../../img/laptop.png')] bg-left-top bg-contain hidden;
-  }
-
-  .logo-img {
-    @apply bg-[image:var(--logo)] bg-[url('../../img/logo/material-oceanic.svg')] my-4 mx-auto;
-  }
-
-  .logo-img.-error {
-    @apply filter grayscale-100 rotate-25 -translate-y-10;
-  }
-
+  /*.screenshot {*/
+  /*  @apply bg-[image:var(--laptop)] bg-no-repeat bg-[50%_30%] bg-[url('../../img/laptop.png')] bg-left-top bg-contain hidden;*/
+  /*}*/
   .sidebar-toggle {
     @apply bg-background transition-colors duration-[0.25s] hover:bg-[linear-gradient(to_top,rgba(0,0,0,0.25),rgba(0,0,0,0.25)),var(--background)];
   }
@@ -182,16 +177,7 @@
     @apply bg-background;
   }
 
-  /* TODO make a component*/
   .btn {
-    border-radius: 2px;
-    display: inline-block;
-    height: 36px;
-    line-height: 36px;
-    outline: 0;
-    padding: 0 2rem;
-    text-transform: uppercase;
-    vertical-align: middle;
-    @apply bg-accent text-selectFg transition-colors duration-1000 hover:bg-accent2;
+    @apply bg-accent hover:bg-accentT text-foreground hover:text-selectFg;
   }
 }

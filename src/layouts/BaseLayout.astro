@@ -26,17 +26,13 @@ const { title, description } = Astro.props;
   <body class="index theme-oceanic">
     <slot name="banner" />
 
-    <header class="header left-0 relative top-0 w-full z-20">
-      <slot name="header" />
-    </header>
+    <slot name="header" />
 
     <div class="main p-50 w-full sm:p-0">
       <slot />
     </div>
 
-    <footer class="footer">
-      <slot name="footer" />
-    </footer>
+    <slot name="footer" />
 
     <!-- Scripts -->
     <slot name="scripts" />

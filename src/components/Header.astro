@@ -1,0 +1,51 @@
+---
+import CarbonAds from './CarbonAds.astro';
+interface Props {
+  logo?: string;
+}
+
+const { logo } = Astro.props;
+const defaultLogo = "url('../../img/logo/material-oceanic.svg')";
+---
+
+<div class="header left-0 relative top-0 w-full z-20">
+  <div class="box-border left-0 overflow-hidden relative text-center top-0 w-full
+  pt-[30px] pb-[20px] pr-[10px] pl-0 sm:pt-[20px]">
+    <div class="block transition duration-300 ease-in-out">
+      <!-- Logo -->
+      <div class="logo-img my-4 mx-auto w-[224px] h-[224px]" style={`--logo: ${logo || defaultLogo}`}></div>
+
+      <!-- Text and description -->
+      <div>
+        <h1 class="logo-caption text-[3em] font-light uppercase max-sm:text-[2em] max-sm:m-0">Material Theme UI</h1>
+        <h2 class="logo-slogan text-[2em] font-light leading-normal max-sm:text-[1.5em] max-sm:m-0">
+          Material Design experience for JetBrains IDEs
+        </h2>
+      </div>
+
+      <!--  Caption -->
+      <div>
+        <h2
+          class="logo-description text-[1.5em] font-light leading-normal max-w-[65%] m-auto max-sm:text-[1em] max-sm:m-0 max-sm:max-w-full"
+        >
+          Material Theme UI is a plugin for JetBrains IDE (IntelliJ IDEA, WebStorm, Android Studio and so on) that changes the original
+          appearance to a Material Design look and feel.
+        </h2>
+      </div>
+
+      <div class="my-4 mx-0">
+        <CarbonAds />
+
+        <a href="/docs/introduction">
+          <button class="btn text-xl text-white h-16 leading-8 px-8 py-4"> Get Started</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-img {
+    background-image: var(--logo), url('../../img/logo/material-oceanic.svg');
+  }
+</style>

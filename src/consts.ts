@@ -13,7 +13,7 @@ export const SITE_KEYWORDS = 'material,theme,plugin,material design,jetbrains,ma
 export const TWITTER_HANDLE = '@mallowigi';
 export const LOGO_PATH = '/img/brand/logo.png';
 
-export const VERSION = '9.2.0';
+export const VERSION = '10.0.0';
 export const YEAR = `2015-${new Date().getFullYear()}`;
 
 export const GITHUB_REPO = 'https://github.com/mallowigi/material-theme-issues';

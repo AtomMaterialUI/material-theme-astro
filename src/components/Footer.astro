@@ -4,14 +4,14 @@ const currentYear = new Date().getFullYear();
 const copyrightYears = `2015-${currentYear}`;
 ---
 
-<footer class="self-end box-border text-[0.8em] font-normal w-full md:text-[0.9em]">
+<footer class="footer self-end box-border text-[0.8em] font-normal w-full md:text-[0.9em]">
   <!-- Contact -->
-  <div class="flex-row flex-wrap justify-between self-start font-light grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div class="content flex-row flex-wrap justify-between self-start font-light grid grid-cols-1 md:grid-cols-3 gap-4">
     <div class="col-span-1">
       <h5>Support Us</h5>
       <p>Thank you for using our plugins! If you liked the plugins, you can support us on Paypal or OpenCollective.</p>
       <!-- TODO make a component-->
-      <a class="btn mt-1 text-white" href="/docs/support-us/">Support</a>
+      <a class="btn mt-[1em]" href="/docs/support-us/">Support</a>
     </div>
 
     <div class="col-span-1">
@@ -21,8 +21,10 @@ const copyrightYears = `2015-${currentYear}`;
         problems or questions, or anything else you can think of.
       </p>
       <!-- TODO make a component -->
-      <a class="btn mt-1 text-white" target="_blank" href="https://join.slack.com/t/material-theme-ui/shared_invite/zt-4w78iblt-cHXYRYERpuGNbD~TqsD8rg"
-        >Slack</a
+      <a
+        class="btn mt-[1em]"
+        target="_blank"
+        href="https://join.slack.com/t/material-theme-ui/shared_invite/zt-4w78iblt-cHXYRYERpuGNbD~TqsD8rg">Slack</a
       >
     </div>
 
@@ -40,11 +42,10 @@ const copyrightYears = `2015-${currentYear}`;
   </div>
 
   <!-- Copyright -->
-  <div class="flex-row flex-wrap justify-between self-start block leading-[54px]">
+  <div class="content flex-row flex-wrap justify-between self-start block leading-[54px]">
     <span>Material Theme v{VERSION} &copy; {YEAR} </span>
     <span class="hidden sm:inline-block">
-      <a href="https://twitter.com/mallowigi" target="_blank">Elior Boukhobza</a> &
-      <a href="https://twitter.com/crmag" target="_blank">Chris Magnussen</a>
+      <a href="https://github.com/AtomMaterialUI" target="_blank">Atom Material Themes and Plugins</a>
     </span>
     <span class="inline-block sm:hidden">All rights reserved</span>
     <a href="/docs/eula" class="float-left sm:float-right muted">EULA</a>
