@@ -37,6 +37,7 @@
   }
 
   .btn {
+    @apply bg-accent hover:bg-accentT text-selectFg hover:text-selectFg;
     @apply border-0 rounded-[2px] inline-block h-[36px] leading-[36px] outline-0 px-[2rem] uppercase align-middle;
     @apply cursor-pointer text-center opacity-[0.95] no-underline transition-[0.2s] ease-out tracking-[0.5px] font-normal;
     @apply shadow-1;
@@ -53,5 +54,9 @@
   .card {
     @apply shadow-1;
     @apply rounded-[2px] bg-contrast my-[0.5em] mx-0 relative transition-shadow duration-[0.25%]
+  }
+
+  #carbonads {
+    @apply card mx-auto mt-0 mb-8;
   }
 }

@@ -1,0 +1,107 @@
+---
+import { GITHUB_REPO } from '../consts';
+import Banner from './Banner.astro';
+import Search from './Search.astro';
+
+interface Props {
+  logo?: string;
+}
+
+const { logo } = Astro.props;
+const defaultLogo = "url('../../img/logo/material-oceanic.svg')";
+---
+
+<div
+  id="main-menu"
+  class="font-normal h-16 l-0 fixed top-0 w-full m-0 p-0 z-2 shadow-1 bg-contrast text-foreground transition-all duration-1000"
+>
+  <div class="content flex flex-row flex-nowrap justify-between items-center h-[inherit] leading-[inherit]">
+    <!-- Home -->
+    <a id="homelink" class="px-[15px] py-0 text-4 border-0 block m-0 align-baseline transition-colors" href="/">
+      <div style={`--logo: ${logo || defaultLogo}`} class="logo-img my-4 mx-0 p-0"></div>
+    </a>
+
+    <nav
+      id="menu"
+      class="bg-contrast text-foreground transition-all duration-1000 flex h-full z-[105] max-lg:leading-[44px] max-lg:overflow-hidden max-lg:p-0 max-lg:fixed max-lg:right-[-320px] max-lg:top-0 max-lg:w-[180px] max-lg:z-[108]"
+      aria-label="Navigation"
+    >
+      <!--Toggle-->
+      <a
+        class="menu-toggle-link js-menu-toggle hidden max-lg:block max-lg:pr-0 max-lg:relative max-lg:text-right max-lg:after:content-['']"
+      >
+        <i class="fa fa-close fa-lg"></i>
+      </a>
+
+      <!-- Elements -->
+      <ul
+        id="navbar"
+        class="flex flex-row flex-nowrap justify-start items-center m-0 p-0 max-lg:flex-col max-lg:relative max-lg:text-center max-lg:w-full"
+      >
+        <li class="listitem">
+          <a class="navlink" href="/docs/introduction">Getting Started</a>
+        </li>
+
+        <li class="listitem">
+          <a class="navlink" href="/docs/configuration/settings">Configuration</a>
+        </li>
+
+        <li class="listitem">
+          <a class="navlink" href="/docs/reference/color-palette">Reference</a>
+        </li>
+
+        <li class="listitem">
+          <a class="navlink" href="/docs/what-s-new">What's New</a>
+        </li>
+
+        <li class="listitem">
+          <a class="navlink" href="/docs/pricing">Pricing</a>
+        </li>
+      </ul>
+    </nav>
+
+    <span class="flex-1"></span>
+
+    <nav id="iconnav" class="flex max-lg:hidden" aria-label="Icons">
+      <ul class="list-none p-0 flex items-center">
+        <li class="search-nav inline-block list-none">
+          <Search />
+        </li>
+
+        <li class="github-nav inline-block list-none max-lg:hidden">
+          <a class="py-0 px-[3px] text-[14px]" href={GITHUB_REPO}>
+            <button class="btn"><i class="fa-github fa-brands text-sm"></i> GitHub</button>
+          </a>
+        </li>
+
+        <a href="#menu" class="menu-toggle-link js-menu-toggle md:hidden text-selectFg">
+          <i class="fa fa-navicon"></i>
+        </a>
+      </ul>
+    </nav>
+  </div>
+
+  <Banner />
+</div>
+
+<style>
+  .logo-img {
+    background-image: var(--logo), url('../../img/logo/material-oceanic.svg');
+    @apply w-[3em] h-[3em];
+  }
+
+  .listitem {
+    @apply h-full flex flex-row items-center justify-start flex-nowrap border-b-transparent border-b-2;
+
+    &:hover,
+    &:active {
+      background-color: rgba(0, 0, 0, 0.1);
+      @apply border-b-accent border-b-2;
+    }
+  }
+
+  .navlink {
+    @apply text-foreground no-underline hover:text-accent transition-colors duration-1000 font-normal max-sm:p-0;
+    @apply py-0 px-[15px] text-[1em] w-full block;
+  }
+</style>

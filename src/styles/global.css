@@ -1,5 +1,6 @@
-@import './themes.css';
-@import './general.css';
+@import "./reset.css";
+@import "./themes.css";
+@import "./general.css";
 
 @tailwind base;
 @tailwind components;
@@ -20,21 +21,21 @@
   --accent2: #c792ea;
   --accent2T: #c792ea70;
   --background: #263238;
-  --foreground: #B0BEC5;
-  --text: #607D8B;
-  --selectBg: #546E7A;
-  --selectFg: #FFFFFF;
-  --accent-text: #FFFFFF;
-  --button: #2E3C43;
-  --second: #32424A;
+  --foreground: #b0bec5;
+  --text: #607d8b;
+  --selectBg: #546e7a;
+  --selectFg: #ffffff;
+  --accent-text: #ffffff;
+  --button: #2e3c43;
+  --second: #32424a;
   --disabled: #415967;
-  --contrast: #1E272C;
+  --contrast: #1e272c;
   --active: #314549;
-  --border: #2A373E;
-  --hl: #425B67;
-  --tree: #546E7A70;
-  --notif: #1E272C;
-  --excluded: #2E3C43;
+  --border: #2a373e;
+  --hl: #425b67;
+  --tree: #546e7a70;
+  --notif: #1e272c;
+  --excluded: #2e3c43;
 
   --yellow: #ffcb6b;
   --green: #c3e88d;
@@ -47,13 +48,14 @@
   --orange2: #f78c6c;
   --gray: #546e7a;
   --silver: #eeffff;
-  --black: #1E272C;
+  --black: #1e272c;
 
-  --font-family: 'Roboto', 'Calibri', 'Arial', sans-serif;
-  --mono-font: 'Source Code Pro', Monaco, 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+  --font-family: "Roboto", "Calibri", "Arial", sans-serif;
+  --mono-font: "Source Code Pro", Monaco, "Bitstream Vera Sans Mono", "Lucida Console",
+  Terminal, monospace;
 
-  --laptop: url('../../img/themes/oceanic.png');
-  --logo: url('../../../img/logo/material-oceanic.svg');
+  --laptop: url("../../img/themes/oceanic.png");
+  --logo: url("../../../img/logo/material-oceanic.svg");
 
   --header-size: 64px;
   --header-size-condensed: 56px;
@@ -88,7 +90,12 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
   padding: 10px 0;
 }
@@ -118,24 +125,22 @@ h4 {
   font-size: 2.28rem;
   font-weight: 300;
   line-height: 2.508rem;
-  margin: 1.14rem 0 .912rem 0;
+  margin: 1.14rem 0 0.912rem 0;
 }
-
 
 h5 {
   font-size: 1.64rem;
   font-weight: 300;
   line-height: 1.804rem;
-  margin: .82rem 0 .656rem 0;
+  margin: 0.82rem 0 0.656rem 0;
 }
 
 h6 {
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.1rem;
-  margin: .5rem 0 .4rem 0;
+  margin: 0.5rem 0 0.4rem 0;
 }
-
 
 a {
   transition: 0.3s all;
@@ -203,11 +208,11 @@ q {
   display: inline;
 
   &::before {
-    content: '“';
+    content: "“";
   }
 
   &::after {
-    content: '”';
+    content: "”";
   }
 }
 
@@ -237,7 +242,7 @@ dl {
     width: 20%;
 
     &::after {
-      content: ':';
+      content: ":";
     }
 
     &:last-of-type {
@@ -270,7 +275,12 @@ code {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   & a {
     font-weight: inherit;
   }

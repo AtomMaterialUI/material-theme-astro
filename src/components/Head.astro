@@ -1,8 +1,8 @@
 ---
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
 import { Fragment } from 'astro/jsx-runtime';
-import Plugins from './Plugins.astro';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
 import Meta from './Meta.astro';
+import Plugins from './Plugins.astro';
 
 interface Props {
   title?: string;
@@ -26,6 +26,7 @@ const isProd = import.meta.env.PROD;
 
 <!-- Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Roboto+Mono:400,500" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <!-- Algolia -->
 <link rel="preconnect" href="https://6LPFESP50M-dsn.algolia.net" crossorigin />

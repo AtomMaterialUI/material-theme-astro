@@ -1,22 +1,17 @@
 /* Define theme components using Tailwind's @apply directive */
 @layer components {
-  /* Base styles for body and form elements */
-  body {
-    @apply bg-background text-foreground transition-all duration-1000;
-  }
-
   body input:not([type]),
-  body input[type=text]:not(.browser-default),
-  body input[type=password]:not(.browser-default),
-  body input[type=email]:not(.browser-default),
-  body input[type=url]:not(.browser-default),
-  body input[type=time]:not(.browser-default),
-  body input[type=date]:not(.browser-default),
-  body input[type=datetime]:not(.browser-default),
-  body input[type=datetime-local]:not(.browser-default),
-  body input[type=tel]:not(.browser-default),
-  body input[type=number]:not(.browser-default),
-  body input[type=search]:not(.browser-default),
+  body input[type="text"]:not(.browser-default),
+  body input[type="password"]:not(.browser-default),
+  body input[type="email"]:not(.browser-default),
+  body input[type="url"]:not(.browser-default),
+  body input[type="time"]:not(.browser-default),
+  body input[type="date"]:not(.browser-default),
+  body input[type="datetime"]:not(.browser-default),
+  body input[type="datetime-local"]:not(.browser-default),
+  body input[type="tel"]:not(.browser-default),
+  body input[type="number"]:not(.browser-default),
+  body input[type="search"]:not(.browser-default),
   body textarea.materialize-textarea {
     @apply text-foreground;
   }
@@ -44,41 +39,14 @@
     @apply bg-background text-foreground;
   }
 
-  .header,
-  .footer {
-    @apply bg-background transition-all duration-1000;
-  }
-
-  .main-menu,
-  .menu,
-  .footer {
-    @apply bg-contrast text-foreground transition-all duration-1000;
-  }
-
-  .main-menu a,
-  .menu a,
-  .footer a {
-    @apply text-selectFg transition-colors duration-300 hover:text-selectFg;
-  }
-
-  .navbar > li:hover {
-    @apply bg-background transition-all duration-1000;
-  }
-
   .muted {
     @apply text-foreground opacity-50 transition-all duration-1000;
   }
 
-  .logo-caption,
-  .logo-description,
   .section-title,
   .feat-title,
   .feat-caption {
     @apply text-foreground fill-foreground transition-all duration-300;
-  }
-
-  .logo-slogan {
-    @apply text-accent transition-all duration-300;
   }
 
   .contents {
@@ -160,24 +128,16 @@
     @apply text-accent2;
   }
 
-  .search .search-input,
-  .search .search-button {
-    @apply text-foreground bg-contrast;
-  }
-
   .collection-item.color {
     @apply text-[#212121];
   }
 
-  .card, #carbonads {
+  .card,
+  #carbonads {
     @apply bg-notif text-foreground;
   }
 
   .pageclip-form__success {
     @apply bg-background;
-  }
-
-  .btn {
-    @apply bg-accent hover:bg-accentT text-foreground hover:text-selectFg;
   }
 }
