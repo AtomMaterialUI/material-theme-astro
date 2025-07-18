@@ -2,7 +2,16 @@
 
 ---
 
-<div class="search" id="search">
+<!-- DocSearch -->
+<style>
+  .DocSearch-Button {
+    opacity: 0;
+  }
+</style>
+<link rel="preconnect" href="https://6LPFESP50M-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
+
+<div class="search my-[1em] mx-0 rounded-4 transition-all duration-300 ease-in-out max-sm:hidden max-md:m-0 max-md:w-[50vw]" id="search">
   <div class="search-wrapper card"></div>
 </div>
 
@@ -45,25 +54,12 @@
   }
 
   .search {
-    margin: 1em 0;
-
     .search-wrapper {
-      border-radius: $input-radius;
-      margin: 0 1em;
-      transition: margin 0.25s ease;
-
       @media all and (max-width: $mobile-size) {
-        margin: 0;
-        width: 50vw;
-
         .sidebar & {
           margin: 0 1em;
           width: auto;
         }
-      }
-
-      @media all and (max-width: $min-mobile-size) {
-        display: none;
       }
     }
 

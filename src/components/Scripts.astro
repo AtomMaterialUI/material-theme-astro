@@ -1,0 +1,57 @@
+---
+const isProd = import.meta.env.PROD;
+---
+
+{
+  isProd && (
+  <Fragment>
+    <script src="/assets/js/vendor/jquery.min.js" />
+    <script src="/assets/js/vendor/materialize.min.js" />
+    <!--<script src="/assets/js/build/app.min.js"></script>-->
+  </Fragment>
+    )
+  }
+
+{
+  !isProd && (
+  <Fragment>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      is:inline
+      integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/4/2z5e5b5f5b5f5b5f5b5f5b5f5b5f5b5f5f"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" is:inline />
+    <!--<script src="/assets/js/app.js" is:inline />-->
+  </Fragment>
+    )
+  }
+
+<script src="/assets/js/vendor/scrollspy.js" is:inline></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>-->
+<!--<script src="{{ site.baseurl }}/assets/js/vendor/instantsearch.min.js"></script>-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha" is:inline></script>
+<script type="text/javascript" is:inline>
+  docsearch({
+    appId: '6LPFESP50M',
+    apiKey: '3c142565f80429418a86aaf4614a0115',
+    indexName: 'material-theme-jetbrains-eap',
+    container: '#search',
+    debug: false, // Set debug to true if you want to inspect the dropdown
+  });
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async is:inline src="https://www.googletagmanager.com/gtag/js?id=UA-108120618-1"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108120618-1');
+</script>
