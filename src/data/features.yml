@@ -1,0 +1,18 @@
+- name: A fresh new Look and Feel
+  description: A brand look and feel with multiple flavors based on Material Design.
+  image: lookandfeel.svg
+- name: Colorful color schemes
+  description: A set of colorful color schemes with support for 60+ languages
+  image: colorschemes.svg
+- name: Material Icons
+  description: Replace icons with Material Design icons and Brand icons.
+  image: icons-folder.svg
+- name: Material Components
+  description: "Redesign components appearance: buttons, text fields, background, tabs..."
+  image: background.svg
+- name: Customizable
+  description: Lots of options to customize the appearance to your taste.
+  image: customizable.svg
+- name: Easily extensible
+  description: Easily extensible for custom themes, schemes and icon associations.
+  image: extensible.svg

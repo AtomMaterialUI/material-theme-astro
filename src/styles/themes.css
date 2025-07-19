@@ -38,11 +38,6 @@
     @apply text-foreground opacity-50 transition-all duration-1000;
   }
 
-  .feat-title,
-  .feat-caption {
-    @apply text-foreground fill-foreground transition-all duration-300;
-  }
-
   /*.screenshot {*/
   /*  @apply bg-[image:var(--laptop)] bg-no-repeat bg-[50%_30%] bg-[url('../../img/laptop.png')] bg-left-top bg-contain hidden;*/
   /*}*/
@@ -85,10 +80,6 @@
 
   .github-ribbon {
     @apply border-0 text-selectFg fill-accent absolute right-0 top-0 transition-all duration-1000;
-  }
-
-  hr {
-    @apply border-hl;
   }
 
   pre,

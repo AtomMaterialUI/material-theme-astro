@@ -1,0 +1,55 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import yaml from 'js-yaml';
+
+interface Feature {
+  name: string;
+  description: string;
+  image: string;
+}
+
+// Get the directory path of the current file
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Construct the path to the themes.yml file
+const yamlPath = path.resolve(__dirname, '../data/features.yml');
+
+// Read and parse the YAML file
+const features = yaml.load<Feature[]>(fs.readFileSync(yamlPath, 'utf8'));
+---
+
+<section class="mx-auto my-[4em] text-center max-sm:my-[2em]">
+  <h2
+    class="text-[2em] text-center font-light leading-[125%] uppercase transition-all ease-in-out duration-300 text-foreground fill-foreground"
+  >Features</h2>
+  <div class="features w-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map((feature: Feature) => (
+        <div class="text-center mb-[25px] p-[20px]">
+          <div>
+            <img
+              src=`/img/features/${feature.image}`
+              width="450"
+              height="253"
+              class="py-0 px-[30%]"
+              alt={feature.name}>
+          </div>
+
+          <div class="text-foreground fill-foreground transition-all duration-1000">
+            <h5>{feature.name}</h5>
+          </div>
+          <p class="text-foreground fill-foreground transition-all duration-1000 py-0 px-[20px]">
+            {feature.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+
+  <a href="https://plugins.jetbrains.com/plugin/8006-material-theme-ui" class="mx-0 my-4">
+    <button class="btn text-[large] h-16 leading-8 py-4 px-8"> Download</button>
+  </a>
+</section>

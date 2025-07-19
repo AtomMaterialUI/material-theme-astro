@@ -1,10 +1,11 @@
 ---
 import Banner from '../components/Banner.astro';
+import Features from '../components/Features.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import ThemeChooser from '../components/ThemeChooser.astro';
 // Home page for Material Theme UI Documentation
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ThemeChooser from '../components/ThemeChooser.astro';
 ---
 
 <BaseLayout
@@ -17,7 +18,13 @@ import ThemeChooser from '../components/ThemeChooser.astro';
 
   <div class="w-full">
     <div class="p-[20px] rounded-[2px] box-border mb-[20px] relative">
+      <!-- Theme Chooser and Preview -->
       <ThemeChooser />
+
+      <!-- Features -->
+      <Features />
+
+      <hr class="border-hl" />
     </div>
   </div>
 
