@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 // Home page for Material Theme UI Documentation
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ThemeChooser from '../components/ThemeChooser.astro';
 ---
 
 <BaseLayout
@@ -13,6 +14,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <Banner slot="banner" />
 
   <Header slot="header" />
+
+  <div class="w-full">
+    <div class="p-[20px] rounded-[2px] box-border mb-[20px] relative">
+      <ThemeChooser />
+    </div>
+  </div>
 
   <Footer slot="footer" />
 </BaseLayout>

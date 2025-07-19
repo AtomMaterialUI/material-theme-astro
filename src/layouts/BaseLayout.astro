@@ -17,8 +17,6 @@ const { title, description } = Astro.props;
   <!--suppress HtmlRequiredTitleElement -->
   <head>
     <Head title={title} description={description} />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <!-- Optional head -->
     <slot name="head" />
@@ -29,8 +27,10 @@ const { title, description } = Astro.props;
 
     <slot name="header" />
 
-    <div class="main p-50 w-full sm:p-0">
-      <slot />
+    <div class="main p-50 w-full max-sm:p-0 bg-background text-foreground transition-all duration-1000">
+      <div class="content">
+        <slot />
+      </div>
     </div>
 
     <slot name="footer" />

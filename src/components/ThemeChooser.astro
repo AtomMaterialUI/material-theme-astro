@@ -1,0 +1,148 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import yaml from 'js-yaml';
+
+interface Theme {
+  name: string;
+  className: string;
+  background: string;
+}
+
+interface Themes {
+  material: Theme[];
+  material2: Theme[];
+  other: Theme[];
+  other2: Theme[];
+}
+
+// Get the directory path of the current file
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Construct the path to the themes.yml file
+const yamlPath = path.resolve(__dirname, '../data/themes.yml');
+
+// Read and parse the YAML file
+const themes = yaml.load<Themes>(fs.readFileSync(yamlPath, 'utf8'));
+
+const currentTheme = themes.material[0];
+---
+
+<section class="mx-auto my-[4em] text-center max-sm:my-[2em]">
+  <!-- Theme Chooser -->
+  <div class="theme-chooser">
+    <h3 class="section-title">Available Themes</h3>
+
+    <div class="theme-chooser-options">
+      {
+        themes.material.map((theme: Theme) => (
+          <div>
+            <a
+              href="javascript:void(0)"
+              style={`background: ${theme.background}`}
+              class={`theme ${theme.className} js-theme`}
+              title={theme.name}
+              data-theme-class={theme.className}
+            />
+            <p class="theme-name">{theme.name}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="theme-chooser-options">
+      {
+        themes.material2.map((theme: Theme) => (
+          <div>
+            <a
+              href="javascript:void(0)"
+              style={`background: ${theme.background}`}
+              class={`theme ${theme.className} js-theme`}
+              title={theme.name}
+              data-theme-class={theme.className}
+            />
+            <p class="theme-name">{theme.name}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Screen -->
+  <div>
+    <a href={`/img/themes/${currentTheme.className}.png`} target="_blank" class={`screenshot -${currentTheme.className}`}></a>
+  </div>
+
+  <div class="theme-chooser">
+    <h3 class="section-title">Check out the other themes:</h3>
+
+    <div class="theme-chooser-options">
+      {
+        themes.other.map((theme: Theme) => (
+          <div>
+            <a
+              href="javascript:void(0)"
+              style={`background: ${theme.background}`}
+              class={`theme ${theme.className} js-theme`}
+              title={theme.name}
+              data-theme-class={theme.className}
+            />
+            <p class="theme-name">{theme.name}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="theme-chooser-options">
+      {
+        themes.other2.map((theme: Theme) => (
+          <div>
+            <a
+              href="javascript:void(0)"
+              style={`background: ${theme.background}`}
+              class={`theme ${theme.className} js-theme`}
+              title={theme.name}
+              data-theme-class={theme.className}
+            />
+            <p class="theme-name">{theme.name}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .theme-chooser {
+    @apply my-[1em] mx-0 max-sm:hidden;
+  }
+
+  .section-title {
+    @apply text-[2em] center font-light leading-[125%] uppercase transition-all ease-in-out duration-300 text-foreground fill-foreground;
+  }
+
+  .theme-chooser-options {
+    @apply flex flex-row justify-around;
+  }
+
+  .theme-name {
+    @apply uppercase;
+  }
+
+  .theme {
+    @apply rounded-[50%] inline-block h-[48px] p-0 w-[48px] m-4;
+    box-shadow:
+      0 0 11px 2px rgba(255, 255, 255, 0.23),
+      0 -1px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .screenshot {
+    background:
+      var(--laptop) no-repeat 50% 30%,
+      url('../../img/laptop.png') no-repeat top left;
+    background-size: 75%, contain;
+    @apply bg-no-repeat block pt-[60%] w-full;
+  }
+</style>
