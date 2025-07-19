@@ -30,7 +30,7 @@ const themes = yaml.load<Themes>(fs.readFileSync(yamlPath, 'utf8'));
 const currentTheme = themes.material[0];
 ---
 
-<section class="mx-auto my-[4em] text-center max-sm:my-[2em]">
+<section class="section">
   <!-- Theme Chooser -->
   <div class="theme-chooser">
     <h3 class="section-title">Available Themes</h3>
@@ -117,10 +117,6 @@ const currentTheme = themes.material[0];
 <style>
   .theme-chooser {
     @apply my-[1em] mx-0 max-sm:hidden;
-  }
-
-  .section-title {
-    @apply text-[2em] text-center font-light leading-[125%] uppercase transition-all ease-in-out duration-300 text-foreground fill-foreground;
   }
 
   .theme-chooser-options {

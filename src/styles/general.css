@@ -59,4 +59,12 @@
   #carbonads {
     @apply card mx-auto mt-0 mb-8;
   }
+
+  .section {
+    @apply mx-auto my-[4em] text-center max-sm:my-[2em];
+  }
+
+  .section-title {
+    @apply text-[2em] text-center font-light leading-[125%] uppercase transition-all ease-in-out duration-300 text-foreground fill-foreground;
+  }
 }

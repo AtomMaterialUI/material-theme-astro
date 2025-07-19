@@ -21,9 +21,9 @@ const yamlPath = path.resolve(__dirname, '../data/features.yml');
 const features = yaml.load<Feature[]>(fs.readFileSync(yamlPath, 'utf8'));
 ---
 
-<section class="mx-auto my-[4em] text-center max-sm:my-[2em]">
+<section class="section">
   <h2
-    class="text-[2em] text-center font-light leading-[125%] uppercase transition-all ease-in-out duration-300 text-foreground fill-foreground"
+    class="section-title"
   >Features</h2>
   <div class="features w-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
     {
