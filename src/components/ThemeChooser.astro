@@ -1,5 +1,8 @@
 ---
 import { currentTheme, type Theme, themes } from '../themes';
+
+const { className } = currentTheme;
+const laptop = `url('../../img/themes/${className}.png')`;
 ---
 
 <section class="section">
@@ -44,7 +47,7 @@ import { currentTheme, type Theme, themes } from '../themes';
 
   <!-- Screen -->
   <div>
-    <a href={`/img/themes/${currentTheme.className}.png`} target="_blank" class={`screenshot -${currentTheme.className}`}></a>
+    <a href={`/img/themes/${className}.png`} target="_blank" class={`screenshot -${className}`}></a>
   </div>
 
   <div class="theme-chooser">
@@ -86,7 +89,7 @@ import { currentTheme, type Theme, themes } from '../themes';
   </div>
 </section>
 
-<style>
+<style define:vars={{ laptop }}>
   .theme-chooser {
     @apply my-[1em] mx-0 max-sm:hidden;
   }
