@@ -72,4 +72,4 @@ const yamlPath = path.resolve(__dirname, './data/themes.yml');
 // Read and parse the YAML file
 export const themes: Themes = yaml.load(fs.readFileSync(yamlPath, 'utf8')) as Themes;
 
-export const currentTheme: Theme = themes.material[0];
+export const currentTheme: Theme = themes.material[3];

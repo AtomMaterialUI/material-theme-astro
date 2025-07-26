@@ -72,11 +72,6 @@ export default {
   // Don't purge existing CSS classes to ensure compatibility
   safelist: [
     // We'll add specific classes that should be preserved here
-    'theme-oceanic',
-    'theme-darker',
-    'theme-lighter',
-    'theme-palenight',
-    'theme-deepocean',
     'documentation',
     'sidebar',
     'content',

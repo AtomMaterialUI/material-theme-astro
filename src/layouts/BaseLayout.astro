@@ -1,9 +1,8 @@
 ---
 import '../styles/global.css';
+
 import Head from '../components/Head.astro';
 import Scripts from '../components/Scripts.astro';
-
-import { currentTheme } from '../themes';
 
 interface Props {
   title: string;
@@ -12,7 +11,9 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-const { background, foreground, second, accent, border } = currentTheme;
+import { currentTheme } from '../themes';
+
+const { background, foreground, second, accent, border, contrast, selectFg } = currentTheme;
 ---
 
 <!doctype html>
@@ -25,12 +26,12 @@ const { background, foreground, second, accent, border } = currentTheme;
     <slot name="head" />
   </head>
 
-  <body id="index" class="bg-background text-foreground transition-all duration-1000 theme-oceanic">
+  <body id="index" class="transition-all duration-1000 theme-oceanic">
     <slot name="banner" />
 
     <slot name="header" />
 
-    <div class="main p-50 w-full max-sm:p-0 bg-background text-foreground transition-all duration-1000">
+    <div class="main p-50 w-full max-sm:p-0 transition-all duration-1000">
       <div class="content">
         <slot />
       </div>
@@ -45,18 +46,19 @@ const { background, foreground, second, accent, border } = currentTheme;
   </body>
 </html>
 
-<style define:vars={{ background, foreground, second, accent, border }}>
+<style define:vars={{ background, foreground, second, accent, border, contrast, selectFg }}>
   body {
     background-color: var(--background);
     color: var(--foreground);
   }
 
-  pre {
+  :global(pre) {
     background-color: var(--second);
     color: var(--foreground);
+    border-color: var(--border);
   }
 
-  a {
+  :global(a) {
     color: var(--accent);
 
     &:hover {
@@ -64,12 +66,57 @@ const { background, foreground, second, accent, border } = currentTheme;
     }
   }
 
-  input,
-  textarea {
+  :global(input),
+  :global(textarea) {
     border-color: var(--border);
 
     &:focus {
       border-color: var(--accent);
+    }
+  }
+
+  :global(blockquote) {
+    background-color: var(--second);
+    border-color: var(--border);
+    color: var(--foreground);
+  }
+
+  :global(.muted) {
+    color: var(--foreground);
+  }
+
+  :global(table tbody tr:nth-child(odd)),
+  :global(.card-panel),
+  :global(.card) {
+    background-color: var(--contrast);
+    color: var(--foreground);
+  }
+
+  :global(.card-panel.warn) {
+    background-color: var(--accent);
+    color: var(--selectFg);
+  }
+
+  :global(.card-panel.error) {
+    color: var(--selectFg);
+  }
+
+  :global(.card-panel a) {
+    color: var(--accent);
+  }
+
+  :global(.github-ribbon) {
+    color: var(--selectFg);
+    fill: var(--accent);
+  }
+
+  :global(.btn) {
+    background-color: var(--accent);
+    color: var(--selectFg);
+
+    &:hover {
+      background-color: var(--accent);
+      color: var(--selectFg);
     }
   }
 </style>

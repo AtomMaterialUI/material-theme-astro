@@ -34,13 +34,6 @@
     @apply bg-background text-foreground;
   }
 
-  .muted {
-    @apply text-foreground opacity-50 transition-all duration-1000;
-  }
-
-  /*.screenshot {*/
-  /*  @apply bg-[image:var(--laptop)] bg-no-repeat bg-[50%_30%] bg-[url('../../img/laptop.png')] bg-left-top bg-contain hidden;*/
-  /*}*/
   .sidebar-toggle {
     @apply bg-background transition-colors duration-[0.25s] hover:bg-[linear-gradient(to_top,rgba(0,0,0,0.25),rgba(0,0,0,0.25)),var(--background)];
   }
@@ -79,43 +72,11 @@
   }
 
   .github-ribbon {
-    @apply border-0 text-selectFg fill-accent absolute right-0 top-0 transition-all duration-1000;
-  }
-
-  pre,
-  code {
-    @apply bg-second border-border;
-  }
-
-  blockquote {
-    @apply bg-second border-border text-foreground;
-  }
-
-  table tbody tr:nth-child(odd),
-  .card-panel,
-  .card {
-    @apply bg-contrast text-foreground;
-  }
-
-  .card-panel.warn {
-    @apply bg-accent text-selectFg;
-  }
-
-  .card-panel.error {
-    @apply text-selectFg;
-  }
-
-  .card-panel a {
-    @apply text-accent2;
+    @apply border-0 absolute right-0 top-0 transition-all duration-1000;
   }
 
   .collection-item.color {
     @apply text-[#212121];
-  }
-
-  .card,
-  #carbonads {
-    @apply bg-notif text-foreground;
   }
 
   .pageclip-form__success {
