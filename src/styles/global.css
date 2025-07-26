@@ -14,41 +14,41 @@
   --foreground-color: #eeffff;
   --error-color: #ff5370;
 
-  --primary: #ffcb6b;
-  --primaryT: #ffcb6b70;
-  --accent: #009688;
-  --accentT: #00968870;
-  --accent2: #c792ea;
-  --accent2T: #c792ea70;
-  --background: #263238;
-  --foreground: #b0bec5;
-  --text: #607d8b;
-  --selectBg: #546e7a;
-  --selectFg: #ffffff;
-  --accent-text: #ffffff;
-  --button: #2e3c43;
-  --second: #32424a;
-  --disabled: #415967;
-  --contrast: #1e272c;
-  --active: #314549;
-  --border: #2a373e;
-  --hl: #425b67;
-  --tree: #546e7a70;
-  --notif: #1e272c;
-  --excluded: #2e3c43;
+  /*--primary: #ffcb6b;*/
+  /*--primaryT: #ffcb6b70;*/
+  /*--accent: #009688;*/
+  /*--accentT: #00968870;*/
+  /*--accent2: #c792ea;*/
+  /*--accent2T: #c792ea70;*/
+  /*--background: #263238;*/
+  /*--foreground: #b0bec5;*/
+  /*--text: #607d8b;*/
+  /*--selectBg: #546e7a;*/
+  /*--selectFg: #ffffff;*/
+  /*--accent-text: #ffffff;*/
+  /*--button: #2e3c43;*/
+  /*--second: #32424a;*/
+  /*--disabled: #415967;*/
+  /*--contrast: #1e272c;*/
+  /*--active: #314549;*/
+  /*--border: #2a373e;*/
+  /*--hl: #425b67;*/
+  /*--tree: #546e7a70;*/
+  /*--notif: #1e272c;*/
+  /*--excluded: #2e3c43;*/
 
-  --yellow: #ffcb6b;
-  --green: #c3e88d;
-  --cyan: #89ddff;
-  --blue: #82aaff;
-  --purple: #c792ea;
-  --red: #f07178;
-  --red2: #f07178;
-  --orange: #f78c6c;
-  --orange2: #f78c6c;
-  --gray: #546e7a;
-  --silver: #eeffff;
-  --black: #1e272c;
+  /*--yellow: #ffcb6b;*/
+  /*--green: #c3e88d;*/
+  /*--cyan: #89ddff;*/
+  /*--blue: #82aaff;*/
+  /*--purple: #c792ea;*/
+  /*--red: #f07178;*/
+  /*--red2: #f07178;*/
+  /*--orange: #f78c6c;*/
+  /*--orange2: #f78c6c;*/
+  /*--gray: #546e7a;*/
+  /*--silver: #eeffff;*/
+  /*--black: #1e272c;*/
 
   --font-family: "Roboto", "Calibri", "Arial", sans-serif;
   --mono-font: "Source Code Pro", Monaco, "Bitstream Vera Sans Mono", "Lucida Console",
@@ -79,8 +79,6 @@ body {
   font-weight: 300;
   line-height: 1.5;
 
-  background-color: var(--background-color);
-  color: var(--foreground-color);
   margin-top: var(--header-size, 0px);
   min-height: 100vh;
   transition: 0.3s all ease-in-out;
@@ -144,11 +142,9 @@ h6 {
 
 a {
   transition: 0.3s all;
-  color: var(--accent);
   text-decoration: none;
 
   &:hover {
-    color: var(--primary);
     cursor: pointer;
   }
 }
@@ -174,15 +170,10 @@ p + * {
 
 input,
 textarea {
-  border: 1px solid var(--border);
   box-sizing: border-box;
   padding: 9px 13px;
   position: relative;
   transition: 0.3s all ease;
-
-  &:focus {
-    border-color: var(--accent);
-  }
 }
 
 cite {
@@ -196,7 +187,6 @@ var {
 }
 
 pre {
-  background: var(--secondary-color);
   box-sizing: border-box;
   margin: 10px 0;
   overflow-x: auto;
