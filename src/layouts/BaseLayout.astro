@@ -13,7 +13,7 @@ const { title, description } = Astro.props;
 
 import { currentTheme } from '../themes';
 
-const { background, foreground, second, accent, border, contrast, selectFg } = currentTheme;
+const { background, foreground, second, accent, border, contrast, selectFg, button, text, selectBg } = currentTheme;
 ---
 
 <!doctype html>
@@ -46,7 +46,7 @@ const { background, foreground, second, accent, border, contrast, selectFg } = c
   </body>
 </html>
 
-<style define:vars={{ background, foreground, second, accent, border, contrast, selectFg }}>
+<style define:vars={{ background, foreground, second, accent, border, contrast, selectFg, button, text, selectBg }}>
   body {
     background-color: var(--background);
     color: var(--foreground);

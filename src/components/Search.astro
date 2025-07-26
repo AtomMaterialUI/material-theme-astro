@@ -1,13 +1,9 @@
 ---
+import { currentTheme } from '../themes';
 
+const { foreground, background, accent, text, contrast, selectFg, button, second, border } = currentTheme;
 ---
 
-<!-- DocSearch -->
-<style>
-  .DocSearch-Button {
-    opacity: 0;
-  }
-</style>
 <link rel="preconnect" href="https://6LPFESP50M-dsn.algolia.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
 
@@ -15,7 +11,7 @@
   <div class="search-wrapper card"></div>
 </div>
 
-<style>
+<style define:vars={{ foreground, background, accent, text, contrast, selectFg, button, second, border }}>
   :global(#index) {
     --docsearch-primary-color: var(--accent);
     --docsearch-text-color: var(--foreground);
@@ -39,6 +35,10 @@
     --docsearch-footer-shadow: 0 -1px 0 0 var(--border), 0 -3px 6px 0 var(--border);
 
     .DocSearch-Button {
+      opacity: 0;
+    }
+
+    .DocSearch-Button {
       border-radius: 4px;
       border: 1px solid var(--button);
       min-width: 180px;
@@ -51,25 +51,18 @@
     .DocSearch-Modal {
       animation: fade-in 0.3s ease-out forwards;
     }
-  }
-
-  .search {
-    .search-wrapper {
-      @media all and (max-width: $mobile-size) {
-        .sidebar & {
-          margin: 0 1em;
-          width: auto;
-        }
-      }
-    }
 
     .algolia-autocomplete {
       width: 100%;
     }
 
+    .ais-search-box {
+      position: relative;
+    }
+
     .search-input {
       border: 2px solid white;
-      border-radius: $input-radius;
+      border-radius: 2px;
       box-sizing: border-box;
       display: block;
       font-size: 1em;
@@ -81,16 +74,12 @@
 
       &:active,
       &:focus {
-        border-bottom: 2px solid $accent-color;
+        border-bottom: 2px solid var(--accent);
       }
     }
 
-    .ais-search-box {
-      position: relative;
-    }
-
     .search-button {
-      color: $primary-text;
+      color: var(--selectFg);
       cursor: pointer;
       left: 0;
       padding: 0 0.75em;
@@ -101,7 +90,7 @@
     }
 
     .search-results {
-      background: white;
+      background: var(--selectFg);
       border-top: $line;
       color: $primary-text;
       position: absolute;
@@ -120,17 +109,11 @@
         }
       }
     }
-
-    .ds-dropdown-menu {
-      @media all and (max-width: $mobile-size) {
-        max-width: $mobile-size;
-        min-width: 300px;
-      }
-    }
   }
 
   .search .search-input,
   .search .search-button {
-    @apply text-foreground bg-contrast;
+    color: var(--foreground);
+    background: var(--contrast);
   }
 </style>
