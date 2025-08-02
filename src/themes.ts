@@ -71,5 +71,19 @@ const yamlPath = path.resolve(__dirname, './data/themes.yml');
 
 // Read and parse the YAML file
 export const themes: Themes = yaml.load(fs.readFileSync(yamlPath, 'utf8')) as Themes;
-
 export const currentTheme: Theme = themes.material[3];
+
+const fetchTheme = () => {
+  const themeName = window.localStorage?.getItem('material-theme');
+  const allThemes = [...themes.material, ...themes.material2, ...themes.other, ...themes.other2];
+  const theme = allThemes.find((t) => t.className === themeName);
+  return theme || themes.material[0];
+};
+
+export const loadTheme = () => {
+  if (typeof window === 'undefined') {
+    return themes.material[0]; // Default theme for server-side rendering
+  }
+
+  return fetchTheme();
+};

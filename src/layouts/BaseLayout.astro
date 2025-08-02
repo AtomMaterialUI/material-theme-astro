@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-
 import Head from '../components/Head.astro';
 import Scripts from '../components/Scripts.astro';
 
@@ -10,10 +9,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-
-import { currentTheme } from '../themes';
-
-const { background, foreground, second, accent, border, contrast, selectFg, button, text, selectBg } = currentTheme;
 ---
 
 <!doctype html>
@@ -26,7 +21,7 @@ const { background, foreground, second, accent, border, contrast, selectFg, butt
     <slot name="head" />
   </head>
 
-  <body id="index" class="transition-all duration-1000 theme-oceanic">
+  <body id="index" class=`transition-all duration-1000 theme-oceanic`>
     <slot name="banner" />
 
     <slot name="header" />
@@ -46,7 +41,7 @@ const { background, foreground, second, accent, border, contrast, selectFg, butt
   </body>
 </html>
 
-<style is:global define:vars={{ background, foreground, second, accent, border, contrast, selectFg, button, text, selectBg }}>
+<style is:global>
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -120,3 +115,9 @@ const { background, foreground, second, accent, border, contrast, selectFg, butt
     }
   }
 </style>
+
+<script is:inline>
+  const currentTheme = localStorage.getItem('material-theme') || 'oceanic';
+  document.body.classList.remove(`theme-${currentTheme}`);
+  document.body.classList.add(`theme-${currentTheme}`);
+</script>

@@ -1,9 +1,7 @@
 ---
-import { currentTheme, type Theme, themes } from '../themes';
+import { type Theme, themes } from '../themes';
+import { Laptop } from './Laptop.tsx';
 import { ThemeButton } from './ThemeButton.tsx';
-
-const { className } = currentTheme;
-const laptop = `url('../../img/themes/${className}.png')`;
 ---
 
 <section class="section">
@@ -12,46 +10,38 @@ const laptop = `url('../../img/themes/${className}.png')`;
     <h3 class="section-title">Available Themes</h3>
 
     <div class="theme-chooser-options">
-      {themes.material.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
+      {themes.material.map((theme: Theme) => <ThemeButton theme={theme} client:load />)}
     </div>
 
     <div class="theme-chooser-options">
-      {themes.material2.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
+      {themes.material2.map((theme: Theme) => <ThemeButton theme={theme} client:load />)}
     </div>
   </div>
 
   <!-- Screen -->
   <div>
-    <a href={`/img/themes/${className}.png`} target="_blank" class={`screenshot -${className}`}></a>
+    <Laptop client:only="preact" client:load />
   </div>
 
   <div class="theme-chooser">
     <h3 class="section-title">Check out the other themes:</h3>
 
     <div class="theme-chooser-options">
-      {themes.other.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
+      {themes.other.map((theme: Theme) => <ThemeButton theme={theme} client:load />)}
     </div>
 
     <div class="theme-chooser-options">
-      {themes.other2.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
+      {themes.other2.map((theme: Theme) => <ThemeButton theme={theme} client:load />)}
     </div>
   </div>
 </section>
 
-<style define:vars={{ laptop }}>
+<style>
   .theme-chooser {
     @apply my-[1em] mx-0 max-sm:hidden;
   }
 
   .theme-chooser-options {
     @apply flex flex-row justify-around;
-  }
-
-  .screenshot {
-    background:
-      var(--laptop) no-repeat 50% 30%,
-      url('../../img/laptop.png') no-repeat top left;
-    background-size: 75%, contain;
-    @apply bg-no-repeat block pt-[60%] w-full;
   }
 </style>

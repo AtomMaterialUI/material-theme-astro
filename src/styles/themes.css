@@ -1,5 +1,51 @@
 /* Define theme components using Tailwind's @apply directive */
 @layer components {
+  :root {
+    --background: var(--mat-background);
+    --foreground: var(--mat-foreground);
+    --text: var(--mat-text);
+    --selectBg: var(--mat-selectBg);
+    --selectFg: var(--mat-selectFg);
+    --selectFg2: var(--mat-selectFg2);
+    --button: var(--mat-button);
+    --second: var(--mat-second);
+    --disabled: var(--mat-disabled);
+    --contrast: var(--mat-contrast);
+    --table: var(--mat-table);
+    --border: var(--mat-border);
+    --hl: var(--mat-hl);
+    --tree: var(--mat-tree);
+    --notif: var(--mat-notif);
+    --accent: var(--mat-accent);
+    --excluded: var(--mat-excluded);
+    --yellow: var(--mat-yellow);
+    --green: var(--mat-green);
+    --cyan: var(--mat-cyan);
+    --blue: var(--mat-blue);
+    --purple: var(--mat-purple);
+    --red: var(--mat-red);
+    --red2: var(--mat-red2);
+    --orange: var(--mat-orange);
+    --orange2: var(--mat-orange2);
+    --gray: var(--mat-gray);
+    --silver: var(--mat-silver);
+    --black: var(--mat-black);
+    --white: var(--mat-white);
+    --error: var(--mat-error);
+    --comments: var(--mat-comments);
+    --vars: var(--mat-vars);
+    --links: var(--mat-links);
+    --functions: var(--mat-functions);
+    --keywords: var(--mat-keywords);
+    --tags: var(--mat-tags);
+    --strings: var(--mat-strings);
+    --numbers: var(--mat-numbers);
+    --operators: var(--mat-operators);
+    --attributes: var(--mat-attributes);
+    --classes: var(--mat-classes);
+    --parameters: var(--mat-parameters);
+  }
+
   body input:not([type]),
   body input[type="text"]:not(.browser-default),
   body input[type="password"]:not(.browser-default),
