@@ -117,7 +117,16 @@ const { title, description } = Astro.props;
 </style>
 
 <script is:inline>
+  const removeClassesByPrefix = (element, prefix) => {
+    const classes = element.classList;
+    for (let i = classes.length - 1; i >= 0; i--) {
+      if (classes[i].startsWith(prefix)) {
+        classes.remove(classes[i]);
+      }
+    }
+  };
+
   const currentTheme = localStorage.getItem('material-theme') || 'oceanic';
-  document.body.classList.remove(`theme-${currentTheme}`);
+  removeClassesByPrefix(document.body, 'theme-');
   document.body.classList.add(`theme-${currentTheme}`);
 </script>

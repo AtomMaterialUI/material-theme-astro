@@ -5,6 +5,15 @@ interface Props {
 }
 
 export const ThemeButton = ({ theme }: Props) => {
+  const removeClassesByPrefix = (element: HTMLElement, prefix: string) => {
+    const classes = element.classList;
+    for (let i = classes.length - 1; i >= 0; i--) {
+      if (classes[i].startsWith(prefix)) {
+        classes.remove(classes[i]);
+      }
+    }
+  };
+
   const setRootTheme = () => {
     const root = document.body;
     const currentTheme = root.getAttribute('data-theme') || '';
@@ -12,7 +21,7 @@ export const ThemeButton = ({ theme }: Props) => {
 
     if (currentTheme !== newTheme) {
       root.setAttribute('data-theme', newTheme);
-      root.classList.remove(`theme-${currentTheme}`);
+      removeClassesByPrefix(root, 'theme-');
       root.classList.add(`theme-${newTheme}`);
       window.localStorage?.setItem('material-theme', newTheme);
     }
