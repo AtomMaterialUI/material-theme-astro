@@ -1,7 +1,5 @@
 ---
-import { currentTheme } from '../themes';
 
-const { foreground, notif } = currentTheme;
 ---
 
 <div class="carbonads">
@@ -13,7 +11,7 @@ const { foreground, notif } = currentTheme;
     id="_carbonads_js"></script>
 </div>
 
-<style define:vars={{ foreground, notif }}>
+<style>
   :global(#carbonads) {
     background-color: var(--notif);
     font-size: small;

@@ -1,0 +1,64 @@
+---
+import { themes } from '../themes';
+
+const allThemes = [...themes.material, ...themes.material2, ...themes.other, ...themes.other2];
+
+const css = allThemes
+  .map(
+    (theme) => `
+  .theme-${theme.className} {
+    --theme-name: "${theme.name}";
+    --theme-id: "${theme.id}";
+    --background: ${theme.background};
+    --foreground: ${theme.foreground};
+    --text: ${theme.text};
+    --selectBg: ${theme.selectBg};
+    --selectFg: ${theme.selectFg};
+    --selectFg2: ${theme.selectFg2};
+    --button: ${theme.button};
+    --second: ${theme.second};
+    --disabled: ${theme.disabled};
+    --contrast: ${theme.contrast};
+    --table: ${theme.table};
+    --border: ${theme.border};
+    --hl: ${theme.hl};
+    --tree: ${theme.tree};
+    --notif: ${theme.notif};
+    --accent: ${theme.accent};
+    --excluded: ${theme.excluded};
+    --yellow: ${theme.yellow};
+    --green: ${theme.green};
+    --cyan: ${theme.cyan};
+    --blue: ${theme.blue};
+    --purple: ${theme.purple};
+    --red: ${theme.red};
+    --red2: ${theme.red2};
+    --orange: ${theme.orange};
+    --orange2: ${theme.orange2};
+    --gray: ${theme.gray};
+    --silver: ${theme.silver};
+    --black: ${theme.black};
+    --white: ${theme.white};
+    --error: ${theme.error};
+    --comments: ${theme.comments};
+    --vars: ${theme.vars};
+    --links: ${theme.links};
+    --functions: ${theme.functions};
+    --keywords: ${theme.keywords};
+    --tags: ${theme.tags};
+    --strings: ${theme.strings};
+    --numbers: ${theme.numbers};
+    --operators: ${theme.operators};
+    --attributes: ${theme.attributes};
+    --classes: ${theme.classes};
+    --parameters: ${theme.parameters};
+    
+    --logo: url('../../img/logo/material-${theme.className}.svg');
+    --laptop: url('../../img/themes/${theme.className}.png');
+  }
+`
+  )
+  .join('');
+---
+
+<style is:global set:html={css}></style>

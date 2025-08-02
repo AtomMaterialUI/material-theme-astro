@@ -1,5 +1,6 @@
 ---
 import { currentTheme, type Theme, themes } from '../themes';
+import { ThemeButton } from './ThemeButton.tsx';
 
 const { className } = currentTheme;
 const laptop = `url('../../img/themes/${className}.png')`;
@@ -11,37 +12,11 @@ const laptop = `url('../../img/themes/${className}.png')`;
     <h3 class="section-title">Available Themes</h3>
 
     <div class="theme-chooser-options">
-      {
-        themes.material.map((theme: Theme) => (
-          <div>
-            <a
-              href="javascript:void(0)"
-              style={`background: ${theme.background}`}
-              class={`theme ${theme.className} js-theme`}
-              title={theme.name}
-              data-theme-class={theme.className}
-            />
-            <p class="theme-name">{theme.name}</p>
-          </div>
-        ))
-      }
+      {themes.material.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
     </div>
 
     <div class="theme-chooser-options">
-      {
-        themes.material2.map((theme: Theme) => (
-          <div>
-            <a
-              href="javascript:void(0)"
-              style={`background: ${theme.background}`}
-              class={`theme ${theme.className} js-theme`}
-              title={theme.name}
-              data-theme-class={theme.className}
-            />
-            <p class="theme-name">{theme.name}</p>
-          </div>
-        ))
-      }
+      {themes.material2.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
     </div>
   </div>
 
@@ -54,37 +29,11 @@ const laptop = `url('../../img/themes/${className}.png')`;
     <h3 class="section-title">Check out the other themes:</h3>
 
     <div class="theme-chooser-options">
-      {
-        themes.other.map((theme: Theme) => (
-          <div>
-            <a
-              href="javascript:void(0)"
-              style={`background: ${theme.background}`}
-              class={`theme ${theme.className} js-theme`}
-              title={theme.name}
-              data-theme-class={theme.className}
-            />
-            <p class="theme-name">{theme.name}</p>
-          </div>
-        ))
-      }
+      {themes.other.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
     </div>
 
     <div class="theme-chooser-options">
-      {
-        themes.other2.map((theme: Theme) => (
-          <div>
-            <a
-              href="javascript:void(0)"
-              style={`background: ${theme.background}`}
-              class={`theme ${theme.className} js-theme`}
-              title={theme.name}
-              data-theme-class={theme.className}
-            />
-            <p class="theme-name">{theme.name}</p>
-          </div>
-        ))
-      }
+      {themes.other2.map((theme: Theme) => <ThemeButton theme={theme} client:visible />)}
     </div>
   </div>
 </section>
@@ -96,17 +45,6 @@ const laptop = `url('../../img/themes/${className}.png')`;
 
   .theme-chooser-options {
     @apply flex flex-row justify-around;
-  }
-
-  .theme-name {
-    @apply uppercase;
-  }
-
-  .theme {
-    @apply rounded-[50%] inline-block h-[48px] p-0 w-[48px] m-4;
-    box-shadow:
-      0 0 11px 2px rgba(255, 255, 255, 0.23),
-      0 -1px 10px 0 rgba(0, 0, 0, 0.1);
   }
 
   .screenshot {

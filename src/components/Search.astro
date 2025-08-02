@@ -1,7 +1,5 @@
 ---
-import { currentTheme } from '../themes';
 
-const { foreground, background, accent, text, contrast, selectFg, button, second, border } = currentTheme;
 ---
 
 <link rel="preconnect" href="https://6LPFESP50M-dsn.algolia.net" crossorigin />
@@ -11,7 +9,7 @@ const { foreground, background, accent, text, contrast, selectFg, button, second
   <div class="search-wrapper card"></div>
 </div>
 
-<style define:vars={{ foreground, background, accent, text, contrast, selectFg, button, second, border }}>
+<style>
   :global(#index) {
     --docsearch-primary-color: var(--accent);
     --docsearch-text-color: var(--foreground);

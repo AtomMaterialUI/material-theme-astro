@@ -3,6 +3,7 @@ import { Fragment } from 'astro/jsx-runtime';
 import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import Meta from './Meta.astro';
 import Plugins from './Plugins.astro';
+import Themes from './Themes.astro';
 
 interface Props {
   title?: string;
@@ -45,3 +46,6 @@ const isProd = import.meta.env.PROD;
 
 <!-- Meta -->
 <Meta title={title} description={description} />
+
+<!-- Themes -->
+<Themes />

@@ -1,8 +1,5 @@
 ---
 import { VERSION, YEAR } from '../consts';
-import { currentTheme } from '../themes';
-
-const { foreground, contrast, selectFg } = currentTheme;
 ---
 
 <footer class="footer transition-all duration-1000 self-end box-border text-[0.8em] font-normal w-full md:text-[0.9em]">
@@ -49,7 +46,7 @@ const { foreground, contrast, selectFg } = currentTheme;
   </div>
 </footer>
 
-<style define:vars={{ foreground, contrast, selectFg }}>
+<style>
   .footer {
     background-color: var(--contrast);
     color: var(--foreground);

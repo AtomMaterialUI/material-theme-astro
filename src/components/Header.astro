@@ -1,18 +1,13 @@
 ---
-import { currentTheme } from '../themes';
 import CarbonAds from './CarbonAds.astro';
 import Nav from './Nav.astro';
-
-const { foreground, background, accent, className } = currentTheme;
-
-const defaultLogo = `url('../../img/logo/material-${className}.svg')`;
 ---
 
 <div class="header transition-all duration-1000 left-0 relative top-0 w-full z-20">
   <div class="box-border left-0 overflow-hidden relative text-center top-0 w-full pt-[30px] pb-[20px] pr-[10px] pl-0 sm:pt-[20px]">
     <div class="block transition duration-300 ease-in-out">
       <!-- Logo -->
-      <div class="logo-img my-4 mx-auto w-[224px] h-[224px]" style={`--logo: ${defaultLogo}`}></div>
+      <div class="logo-img my-4 mx-auto w-[224px] h-[224px]"></div>
 
       <!-- Text and Caption -->
       <div>
@@ -46,7 +41,7 @@ const defaultLogo = `url('../../img/logo/material-${className}.svg')`;
   <Nav />
 </div>
 
-<style define:vars={{ foreground, background, accent }}>
+<style>
   .header {
     background-color: var(--background);
     color: var(--foreground);

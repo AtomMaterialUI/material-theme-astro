@@ -3,7 +3,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
-import { currentTheme } from '../themes';
 
 interface Feature {
   name: string;
@@ -22,8 +21,6 @@ const yamlPath = path.resolve(__dirname, '../data/features.yml');
 const features: Feature[] = yaml.load(
   fs.readFileSync(yamlPath, 'utf8'),
 ) as Feature[];
-
-const { foreground } = currentTheme;
 ---
 
 <section class="section">
@@ -57,7 +54,7 @@ const { foreground } = currentTheme;
   </a>
 </section>
 
-<style define:vars={{ foreground }}>
+<style>
   .section-title {
     color: var(--foreground);
     fill: var(--foreground);
