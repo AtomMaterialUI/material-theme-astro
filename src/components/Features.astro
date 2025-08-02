@@ -1,9 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
-import { Image } from 'astro:assets';
 
 interface Feature {
   name: string;
@@ -32,7 +32,7 @@ const features: Feature[] = yaml.load(
         <div class="text-center mb-[25px] p-[20px]">
           <div>
             <Image
-              src=`/src/img/features/${feature.image}`
+              src=`/public/img/features/${feature.image}`
               width="450"
               height="253"
               class="py-0 px-[30%]"

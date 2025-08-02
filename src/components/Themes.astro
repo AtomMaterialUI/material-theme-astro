@@ -1,7 +1,12 @@
 ---
 import { themes } from '../themes';
 
-const allThemes = [...themes.material, ...themes.material2, ...themes.other, ...themes.other2];
+const allThemes = [
+  ...themes.material,
+  ...themes.material2,
+  ...themes.other,
+  ...themes.other2,
+];
 
 const css = allThemes
   .map(
@@ -53,10 +58,10 @@ const css = allThemes
     --classes: ${theme.classes};
     --parameters: ${theme.parameters};
     
-    --logo: url('../../src/img/logo/material-${theme.className}.svg');
-    --laptop: url('../../src/img/themes/${theme.className}.png');
+    --logo: url('../../public/img/logo/material-${theme.className}.svg');
+    --laptop: url('../../public/img/themes/${theme.className}.png');
   }
-`
+`,
   )
   .join('');
 ---
