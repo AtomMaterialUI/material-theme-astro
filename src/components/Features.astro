@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
+import { Image } from 'astro:assets';
 
 interface Feature {
   name: string;
@@ -30,12 +31,12 @@ const features: Feature[] = yaml.load(
       features.map((feature: Feature) => (
         <div class="text-center mb-[25px] p-[20px]">
           <div>
-            <img
-              src=`/img/features/${feature.image}`
+            <Image
+              src=`/src/img/features/${feature.image}`
               width="450"
               height="253"
               class="py-0 px-[30%]"
-              alt={feature.name}>
+              alt={feature.name}/>
           </div>
 
           <div class="text-foreground fill-foreground transition-all duration-1000">

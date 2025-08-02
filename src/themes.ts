@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
 export interface Theme {
@@ -61,10 +60,6 @@ export interface Themes {
   other: Theme[];
   other2: Theme[];
 }
-
-// Get the directory path of the current file
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Construct the path to the themes.yml file
 const yamlPath = path.resolve('public/data/themes.yml');

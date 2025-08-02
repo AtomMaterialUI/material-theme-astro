@@ -1,4 +1,6 @@
 ---
+import Image from 'astro/components/Image.astro';
+
 // Figure component - displays an image with a caption
 // This replaces the Jekyll include figure.html
 
@@ -10,24 +12,11 @@ interface Props {
   height?: string | number;
 }
 
-const {
-  src,
-  caption,
-  alt = caption || "Image",
-  width,
-  height
-} = Astro.props;
+const { src, caption, alt = caption || 'Image', width, height } = Astro.props;
 ---
 
 <figure class="figure">
-  <img
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    loading="lazy"
-    class="responsive-img"
-  />
+  <Image src={src} alt={alt} width={Number(width)} height={Number(height)} loading="lazy" class="responsive-img" />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
@@ -47,7 +36,7 @@ const {
   figcaption {
     margin-top: 0.5rem;
     font-style: italic;
-    color: var(--foreground-color);
+    color: var(--foreground);
     opacity: 0.8;
   }
 </style>
