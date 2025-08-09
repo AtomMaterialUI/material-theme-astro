@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
 interface Feature {
@@ -11,17 +10,22 @@ interface Feature {
   image: string;
 }
 
-// Get the directory path of the current file
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // Construct the path to the themes.yml file
 const yamlPath = path.resolve('public/data/features.yml');
 
 // Read and parse the YAML file
-const features: Feature[] = yaml.load(
-  fs.readFileSync(yamlPath, 'utf8'),
-) as Feature[];
+const features: Feature[] = yaml.load(fs.readFileSync(yamlPath, 'utf8')) as Feature[];
+
+// Import all SVG images in the features directory
+const matches = import.meta.glob('../images/features/*.svg', {
+  eager: true,
+}) as Record<string, { default: ImageMetadata }>;
+
+const featuresMap = Object.entries(matches).reduce((acc: Record<string, ImageMetadata>, [key, value]) => {
+  const fileName = path.basename(key);
+  acc[fileName] = value.default;
+  return acc;
+}, {});
 ---
 
 <section class="section">
@@ -31,20 +35,13 @@ const features: Feature[] = yaml.load(
       features.map((feature: Feature) => (
         <div class="text-center mb-[25px] p-[20px]">
           <div>
-            <Image
-              src=`/src/images/features/${feature.image}`
-              width="450"
-              height="253"
-              class="py-0 px-[30%]"
-              alt={feature.name}/>
+            <Image src={featuresMap[feature.image]?.src} width="450" height="253" class="py-0 px-[30%]" alt={feature.name} />
           </div>
 
           <div class="text-foreground fill-foreground transition-all duration-1000">
             <h5>{feature.name}</h5>
           </div>
-          <p class="text-foreground fill-foreground transition-all duration-1000 py-0 px-[20px]">
-            {feature.description}
-          </p>
+          <p class="text-foreground fill-foreground transition-all duration-1000 py-0 px-[20px]">{feature.description}</p>
         </div>
       ))
     }
