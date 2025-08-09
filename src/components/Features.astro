@@ -22,31 +22,41 @@ const yamlPath = path.resolve('public/data/features.yml');
 const features: Feature[] = yaml.load(
   fs.readFileSync(yamlPath, 'utf8'),
 ) as Feature[];
+
+const images = import.meta.glob('/src/images/features/*.svg', {
+  eager: true,
+}) as Record<string, { default: ImageMetadata }>;
+
+function imageByFileName(fileName: string) {
+  // Match by trailing filename
+  for (const [absPath, mod] of Object.entries(images)) {
+    if (absPath.endsWith(`/${fileName}`)) {
+      return mod.default;
+    }
+  }
+  return null;
+}
 ---
 
 <section class="section">
   <h2 class="section-title">Features</h2>
   <div class="features w-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
     {
-      features.map((feature: Feature) => (
-        <div class="text-center mb-[25px] p-[20px]">
-          <div>
-            <Image
-              src=`/images/features/${feature.image}`
-              width="450"
-              height="253"
-              class="py-0 px-[30%]"
-              alt={feature.name}/>
-          </div>
+      features.map((feature: Feature) => {
+        const img = imageByFileName(feature.image);
+        return (
+          <div class="text-center mb-[25px] p-[20px]">
+            <div>
+              <Image src={img?.src ?? ''} width="450" height="253" class="py-0 px-[30%]" alt={feature.name} />
+            </div>
 
-          <div class="text-foreground fill-foreground transition-all duration-1000">
-            <h5>{feature.name}</h5>
+            <div class="text-foreground fill-foreground transition-all duration-1000">
+              <h5>{feature.name}</h5>
+            </div>
+            <p class="text-foreground fill-foreground transition-all duration-1000 py-0 px-[20px]">{feature.description}</p>
           </div>
-          <p class="text-foreground fill-foreground transition-all duration-1000 py-0 px-[20px]">
-            {feature.description}
-          </p>
-        </div>
-      ))
+        );
+      })
     }
   </div>
 
